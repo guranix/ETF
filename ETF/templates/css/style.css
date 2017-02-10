@@ -1,0 +1,30 @@
+.top-line {
+    background-color: #ececec;
+    padding: 10px 20px 0;
+}
+.top-line span {
+    padding-left: 15px;
+}
+.hero {
+    padding-top: 50px;
+}
+.desc {
+    font-size: 16px;
+    margin-top: 20px;
+}
+.dtbl {
+	padding-top: 30px;
+}
+.signin-signup {
+    margin: 150px auto;
+    width: 400px;
+	background-color: #ececec;
+	padding:50px 25px 25px 25px;
+}
+.form-title {
+    border-bottom: 1px dotted #000;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    text-align: center;
+}

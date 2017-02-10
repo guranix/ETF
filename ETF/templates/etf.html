@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>ETF</title>
+
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <script src="https://www.amcharts.com/lib/3/pie.js"></script>
+    <link href="http://mediashark.pro/files/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+    <!-- Styles -->
+    <style>
+        #chartdiv1,
+        #chartdiv2,
+        #chartdiv3{
+            width		: 100%;
+            height		: 500px;
+            font-size	: 11px;
+        }
+    </style>
+
+
+    <script>
+        var myList2 = ${sectorWeights};
+        var myList1 = ${countryWeights};
+        var myList = ${top10Holdings};
+
+        // Builds the HTML Table out of myList.
+        function buildHtmlTable(myList, selector) {
+            var columns = addAllColumnHeaders(myList, selector);
+
+            for (var i = 0; i < myList.length; i++) {
+                var row$ = $('<tr/>');
+                for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+                    var cellValue = myList[i][columns[colIndex]];
+                    if (cellValue == null) cellValue = "";
+                    row$.append($('<td/>').html(cellValue));
+                }
+                $(selector).append(row$);
+            }
+        }
+
+        // Adds a header row to the table and returns the set of columns.
+        // Need to do union of keys from all records as some records may not contain
+        // all records.
+        function addAllColumnHeaders(myList, selector) {
+            var columnSet = [];
+            var headerTr$ = $('<tr/>');
+
+            for (var i = 0; i < myList.length; i++) {
+                var rowHash = myList[i];
+                for (var key in rowHash) {
+                    if ($.inArray(key, columnSet) == -1) {
+                        columnSet.push(key);
+                        headerTr$.append($('<th/>').html(key));
+                    }
+                }
+            }
+            $(selector).append(headerTr$);
+
+            return columnSet;
+        }
+    </script>
+
+    <!-- Chart code -->
+    <script>
+        var chart = AmCharts.makeChart( "chartdiv1", {
+            "type": "serial",
+            "theme": "light",
+            "dataProvider": ${top10Holdings}, "valueAxes": [ {
+                "gridColor": "#FFFFFF",
+                "gridAlpha": 0.2,
+                "dashLength": 0
+            } ],
+            "gridAboveGraphs": true,
+            "startDuration": 1,
+            "graphs": [ {
+                "balloonText": "[[category]]: <b>[[value]]</b>",
+                "fillAlphas": 0.8,
+                "lineAlpha": 0.2,
+                "type": "column",
+                "valueField": "weight"
+            } ],
+            "chartCursor": {
+                "categoryBalloonEnabled": false,
+                "cursorAlpha": 0,
+                "zoomable": false
+            },
+            "categoryField": "holding",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "gridAlpha": 0,
+                "tickPosition": "start",
+                "tickLength": 20,
+                "labelRotation": 45
+            },
+            "export": {
+                "enabled": true
+            }
+
+        } );
+    </script>
+
+
+
+    <!-- Chart code -->
+    <script>
+        var chart = AmCharts.makeChart( "chartdiv2", {
+            "type": "pie",
+            "theme": "light",
+            "dataProvider": ${sectorWeights},
+            "valueField": "weight",
+            "titleField": "sector",
+            "balloon":{
+                "fixedPosition":true
+            },
+            "export": {
+                "enabled": true
+            }
+        } );
+    </script>
+
+
+    <!-- Chart code -->
+    <script>
+        var chart = AmCharts.makeChart( "chartdiv3", {
+            "type": "pie",
+            "theme": "light",
+            "dataProvider": ${countryWeights},
+            "valueField": "weight",
+            "titleField": "country",
+            "balloon":{
+                "fixedPosition":true
+            },
+            "export": {
+                "enabled": true
+            }
+        } );
+    </script>
+</head>
+
+
+<body onLoad="buildHtmlTable(myList, '#top10Holdings');
+              buildHtmlTable(myList1, '#countryWeights');
+               buildHtmlTable(myList2, '#sectorWeights')">
+
+
+
+<div class="container top-line">
+	<div class="row">
+		<div class="col-md-12"><p>Hello <strong>${username}</strong>! <a href="user">Requests history</a></p></div>
+	</div>
+</div>
+
+<div class="container hero">
+	<div class="row">
+		<div class="col-md-12"><h1>${etfName}</h1><p class="desc">${etfDescription}</p></div>
+	</div>
+</div>
+
+<div class="container dtbl etfweight">
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8">
+            <table id="top10Holdings" class="table table-striped table-bordered table-hover">
+            </table>
+        </div>
+        <div class="col-md-offset-2 col-md-8">
+            <table id="countryWeights" class="table table-striped table-bordered table-hover">
+            </table>
+        </div>
+        <div class="col-md-offset-2 col-md-8">
+            <table id="sectorWeights" class="table table-striped table-bordered table-hover">
+            </table>
+        </div>
+
+
+        <!-- HTML -->
+        <div id="chartdiv1" class="col-md-12"></div>
+        <div id="chartdiv2" class="col-md-12"></div>
+        <div id="chartdiv3" class="col-md-12"></div>
+
+    </div>
+</div>
+
+</body>
+</html>
+
