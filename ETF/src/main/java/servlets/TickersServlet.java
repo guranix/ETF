@@ -35,8 +35,8 @@ public class TickersServlet extends HttpServlet {
 
 
         Map<String, Object> pageVariables = new HashMap<>();
-        pageVariables.put("globalTickers", ETFParser.getGlobalEquities());
-        pageVariables.put("usTickers", ETFParser.getUSEquities());
+//        pageVariables.put("globalTickers", ETFParser.getGlobalEquities());
+//        pageVariables.put("usTickers", ETFParser.getUSEquities());
         pageVariables.put("username", user.getName());
 
         response.getWriter().println(PageGenerator.instance().getPage("menu.html", pageVariables));
