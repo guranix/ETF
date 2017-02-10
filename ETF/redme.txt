@@ -1,0 +1,17 @@
+To run on your local machine:
+1) Unzip ETF.zip in any folder on your machine.
+2) Run "java -jar server.jar" in command line. (There should be server.jar file and templates folder in the directory. JRE 1.8 must be installed.)
+3) Run your browser. Go to localhost:8080
+
+To run in your IDE:
+1) Open as Maven project.
+2) Run Main class.
+3) Run your browser. Go to localhost:8080
+
+To use MySQL database:
+1) Switch database on lines 20-21 in DBService.java.
+2) Run /src/main/java/dbconfig/StartScript.sql to create shema and tables.
+3) Re-compile (In IDE or run "mvn compile assembly:single" in command line(Maven must be installed)).
+
+
+

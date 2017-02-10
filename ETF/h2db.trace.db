@@ -544,3 +544,155 @@ org.h2.jdbc.JdbcSQLException: No data is available [2000-193]
 org.h2.jdbc.JdbcSQLException: No data is available [2000-193]
 2017-02-09 22:54:34 jdbc[5]: exception
 org.h2.jdbc.JdbcSQLException: No data is available [2000-193]
+2017-02-10 07:51:30 jdbc[4]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-193]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:184)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:126)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:99)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at dbService.DBService.getH2Connection(DBService.java:176)
+	at dbService.DBService.<init>(DBService.java:20)
+	at servlets.EtfServlet.doGet(EtfServlet.java:47)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:838)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:543)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1584)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1228)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:481)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1130)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:564)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:318)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:251)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:112)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.Invocable.invokePreferred(Invocable.java:122)
+	at org.eclipse.jetty.util.thread.strategy.ExecutingExecutionStrategy.invoke(ExecutingExecutionStrategy.java:58)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceConsume(ExecuteProduceConsume.java:201)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:133)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:672)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:590)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 40 more
+2017-02-10 07:51:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: No data is available [2000-193]
+2017-02-10 07:51:41 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: No data is available [2000-193]
+2017-02-10 07:51:47 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: No data is available [2000-193]
+2017-02-10 08:02:49 jdbc[4]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-193]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:184)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:126)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:99)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at dbService.DBService.getH2Connection(DBService.java:176)
+	at dbService.DBService.<init>(DBService.java:20)
+	at servlets.EtfServlet.doGet(EtfServlet.java:47)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:838)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:543)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1584)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1228)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:481)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1130)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:564)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:318)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:251)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:112)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:672)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:590)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 36 more
+2017-02-10 08:02:49 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: No data is available [2000-193]
+2017-02-10 08:02:56 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: No data is available [2000-193]
+2017-02-10 08:02:57 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "COUNTRY_WEIGHT VARCHAR(1024) NOT NULL": "'[{""country"":""Japan"",""weight"":16.79},{""country"":""United Kingdom"",""weight"":12.7},{""country"":""Canada"",""weight"":7.17},{""country"":""F... (1609)"; SQL statement:
+insert into etfs (etf_name, ticker, description, top_holdings, country_weight, sector_weight) values ('SPDR® MSCI ACWI ex-US ETF', 'CWI', 'The SPDR® MSCI ACWI ex-US ETF seeks to provide investment results that, before fees and expenses, correspond generally to the total return performance of the MSCI ACWI ex USA Index. Ordinary brokerage commissions may apply. Important Risk Information » About this Benchmark »', '[{"holding":"Nestle S.A.","weight":1.32},{"holding":"Novartis AG","weight":1.01},{"holding":"Roche Holding Ltd Genusssch.","weight":0.95},{"holding":"Samsung Electronics Co. Ltd. GDR RegS","weight":0.95},{"holding":"HSBC Holdings plc","weight":0.94},{"holding":"Toyota Motor Corp.","weight":0.85},{"holding":"Tencent Holdings Ltd.","weight":0.84},{"holding":"Taiwan Semiconductor Manufacturing Co. Ltd. Sponsored ADR","weight":0.83},{"holding":"Commonwealth Bank of Australia","weight":0.67},{"holding":"Total SA","weight":0.66}]', '[{"country":"Japan","weight":16.79},{"country":"United Kingdom","weight":12.7},{"country":"Canada","weight":7.17},{"country":"France","weight":6.68},{"country":"Germany","weight":6.37},{"country":"China","weight":6.33},{"country":"Switzerland","weight":6.21},{"country":"Australia","weight":5.46},{"country":"South Korea","weight":3.44},{"country":"Taiwan","weight":2.7},{"country":"Hong Kong","weight":2.44},{"country":"Netherlands","weight":2.41},{"country":"Spain","weight":2.15},{"country":"Sweden","weight":2.01},{"country":"Brazil","weight":1.85},{"country":"India","weight":1.82},{"country":"South Africa","weight":1.55},{"country":"Italy","weight":1.36},{"country":"Denmark","weight":1.14},{"country":"Singapore","weight":1.0},{"country":"Belgium","weight":0.95},{"country":"Russia","weight":0.91},{"country":"Mexico","weight":0.86},{"country":"Finland","weight":0.68},{"country":"Indonesia","weight":0.54},{"country":"Malaysia","weight":0.53},{"country":"Norway","weight":0.5},{"country":"Thailand","weight":0.48},{"country":"Israel","weight":0.45},{"country":"Ireland","weight":0.33},{"country":"Philippines","weight":0.32},{"country":"Turkey","weight":0.31},{"country":"Chile","weight":0.31},{"country":"Poland","weight":0.26},{"country":"Austria","weight":0.25},{"country":"Colombia","weight":0.12},{"country":"Hungary","weight":0.12},{"country":"Peru","weight":0.12},{"country":"New Zealand","weight":0.11},{"country":"Egypt","weight":0.09},{"country":"Greece","weight":0.09},{"country":"Portugal","weight":0.07},{"country":"United Arab Emirates","weight":0.04},{"country":"Qatar","weight":0.01}]', '[{"sector":"Financials","weight":23.56},{"sector":"Industrials","weight":12.6},{"sector":"Consumer Discretionary","weight":10.75},{"sector":"Consumer Staples","weight":9.81},{"sector":"Information Technology","weight":9.19},{"sector":"Health Care","weight":8.26},{"sector":"Materials","weight":8.18},{"sector":"Energy","weight":6.64},{"sector":"Telecommunication Services","weight":4.93},{"sector":"Utilities","weight":3.11},{"sector":"Real Estate","weight":2.69},{"sector":"Unassigned","weight":0.01}]') [22001-193]
+2017-02-10 08:03:05 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: No data is available [2000-193]
+2017-02-10 08:05:11 jdbc[4]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-193]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:184)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:126)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:99)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at dbService.DBService.getH2Connection(DBService.java:176)
+	at dbService.DBService.<init>(DBService.java:20)
+	at servlets.EtfServlet.doGet(EtfServlet.java:47)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:838)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:543)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1584)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1228)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:481)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1130)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:564)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:318)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:251)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:112)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.Invocable.invokePreferred(Invocable.java:122)
+	at org.eclipse.jetty.util.thread.strategy.ExecutingExecutionStrategy.invoke(ExecutingExecutionStrategy.java:58)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceConsume(ExecuteProduceConsume.java:201)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:133)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:672)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:590)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 40 more
+2017-02-10 08:05:11 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: No data is available [2000-193]
+2017-02-10 08:05:22 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: No data is available [2000-193]
+2017-02-10 08:05:29 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: No data is available [2000-193]

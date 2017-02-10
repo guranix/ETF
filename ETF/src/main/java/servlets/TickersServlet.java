@@ -39,7 +39,7 @@ public class TickersServlet extends HttpServlet {
         pageVariables.put("usTickers", ETFParser.getUSEquities());
         pageVariables.put("username", user.getName());
 
-        response.getWriter().println(PageGenerator.instance().getPage("tickers.html", pageVariables));
+        response.getWriter().println(PageGenerator.instance().getPage("menu.html", pageVariables));
 
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);

@@ -6,11 +6,18 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import service.ETFParser;
 import servlets.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by guran on 2/7/17.
  */
 public class Main {
     public static void main(String[] args) throws Exception {
+
+//        ETFParser.getGlobalEquities().forEach(System.out::println);
+//        System.out.println("");
+//        ETFParser.getUSEquities().forEach(System.out::println);
 
         SignInServlet signInServlet = new SignInServlet();
         SignUpServlet signUpServlet = new SignUpServlet();

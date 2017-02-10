@@ -17,32 +17,47 @@ import java.util.stream.Collectors;
  */
 public class ETFParser {
 
-//    public static List<String> getGlobalEquities() throws IOException {
-//        Document doc = Jsoup.connect("http://spdrs.com").get();
-//        Element allETFs = doc.getElementById("menu_ETFs");
-//        Elements globalEquitiesList = allETFs.child(1).child(0).child(4).child(1).getElementsByTag("a");
-//        return globalEquitiesList.stream().map(Element::text).collect(Collectors.toList());
-//    }
-
     public static List<String> getGlobalEquities() throws IOException {
-        Document doc = Jsoup.connect("https://www.spdrs.com/product/fund.seam").get();
-        Element allETFs = doc.getElementById("performancePanel");
-        Elements globalEquitiesList = allETFs.child(3).getElementsByAttributeValue("class", "fund");
-        return globalEquitiesList.stream().map(n->n.child(1).text()).collect(Collectors.toList());
+        Document doc = Jsoup.connect("http://spdrs.com").get();
+        Element allETFs = doc.getElementById("menu_ETFs");
+        Elements globalEquitiesList = allETFs.child(1).child(0).child(4).child(1).getElementsByTag("a");
+        List<String> names1 = globalEquitiesList.stream().map(Element::text).collect(Collectors.toList());
+
+        Document doc2 = Jsoup.connect("https://www.spdrs.com/product/fund.seam").get();
+        Element allETFs2 = doc2.getElementById("performancePanel");
+        Elements globalEquitiesList2 = allETFs2.child(3).getElementsByAttributeValue("class", "fund");
+        List<String> tickers1 = globalEquitiesList2.stream().map(n->n.child(1).text()).collect(Collectors.toList());
+
+        List<String> result1 = new ArrayList<>();
+        if (names1.size() == tickers1.size()){
+            for (int i = 0; i < names1.size(); i++){
+                result1.add("<tr><td><a href=\"etf?ticker=" + tickers1.get(i) + "\">" + names1.get(i) + "</a></td><tr>");
+            }
+        }
+        return  result1;
     }
 
-//    public static List<String> getUSEquities() throws IOException {
-//        Document doc = Jsoup.connect("http://spdrs.com").get();
-//        Element allETFs = doc.getElementById("menu_ETFs");
-//        Elements globalEquitiesList = allETFs.child(1).child(0).child(6).child(1).getElementsByTag("a");
-//        return globalEquitiesList.stream().map(Element::text).collect(Collectors.toList());
-//    }
+
 
     public static List<String> getUSEquities() throws IOException {
-        Document doc = Jsoup.connect("https://www.spdrs.com/product/fund.seam").get();
-        Element allETFs = doc.getElementById("performancePanel");
-        Elements usEquitiesList = allETFs.child(5).getElementsByAttributeValue("class", "fund");
-        return usEquitiesList.stream().map(n->n.child(1).text()).collect(Collectors.toList());
+
+        Document doc = Jsoup.connect("http://spdrs.com").get();
+        Element allETFs = doc.getElementById("menu_ETFs");
+        Elements globalEquitiesList = allETFs.child(1).child(0).child(6).child(1).getElementsByTag("a");
+        List<String> names2 =  globalEquitiesList.stream().map(Element::text).collect(Collectors.toList());
+
+        Document doc2 = Jsoup.connect("https://www.spdrs.com/product/fund.seam").get();
+        Element allETFs2 = doc2.getElementById("performancePanel");
+        Elements usEquitiesList2 = allETFs2.child(5).getElementsByAttributeValue("class", "fund");
+        List<String> tickers2 =  usEquitiesList2.stream().map(n->n.child(1).text()).collect(Collectors.toList());
+
+        List<String> result2 = new ArrayList<>();
+        if (names2.size() == tickers2.size()){
+            for (int i = 0; i < names2.size(); i++){
+                result2.add("<tr><td><a href=\"etf?ticker=" + tickers2.get(i) + "\">" + names2.get(i) + "</a></td></tr>");
+            }
+        }
+        return result2;
     }
 
 
@@ -64,7 +79,6 @@ public class ETFParser {
                     countryWeightsList.add(new CountryWeight(n.getElementsByClass("label").text(), Double.parseDouble(value)));
                 });
         String countryWeights = new Gson().toJson(countryWeightsList);
-        System.out.println(countryWeights);
 
 
         // parsing country weights
